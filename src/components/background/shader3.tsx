@@ -1,8 +1,8 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import * as THREE from "three"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils.ts"
 
 interface ShaderPlaneProps {
   vertexShader: string
@@ -71,6 +71,7 @@ interface ShaderBackgroundProps {
   uniforms?: { [key: string]: { value: unknown } }
   className?: string
   color?: string
+  accent?: boolean
 }
 
 const Shader3 = ({
@@ -176,7 +177,7 @@ const Shader3 = ({
 
     vec3 gradient(float d){
         float a = smoothstep(0.0, 1.0, d);
-        vec3 colA = mix(vec3(0.05,0.05,0.05),vec3(.4,.6,.6),smoothstep(0.05,0.05,0.05) * d);
+        vec3 colA = mix(vec3(0.0,0.0,0.0),vec3(.4,.6,.6),smoothstep(0.05,0.05,0.05) * d);
         vec3 colB = mix(u_color * 0.06, u_color * 0.9, a);
         return mix(colA, colB, d);
     }
@@ -274,7 +275,7 @@ const Shader3 = ({
 
         color = pow(color,vec3(1./1.222));
 
-        fragColor = vec4(vec3(color),1.0);
+        fragColor = vec4(vec3(color),d);
     }
 
     void main() {
@@ -286,27 +287,64 @@ const Shader3 = ({
   `,
   uniforms = {},
   className,
-  color = "#bbffcc",
+  color,
+  accent = true,
 }: ShaderBackgroundProps) => {
+  const [internalColor, setInternalColor] = useState<string>(color || "#bbffcc")
+
+  useEffect(() => {
+    const updateColor = () => {
+      if (!color && accent) {
+        const temp = document.createElement("div")
+        temp.style.color = "var(--accent)"
+        document.body.appendChild(temp)
+        const computedColor = getComputedStyle(temp).color
+        document.body.removeChild(temp)
+
+        if (computedColor) {
+          setInternalColor(computedColor)
+        }
+      } else if (color) {
+        setInternalColor(color)
+      }
+    }
+
+    updateColor()
+
+    const observer = new MutationObserver(() => {
+      updateColor()
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
+    return () => observer.disconnect()
+  }, [color, accent])
+
   const shaderUniforms = useMemo(
     () => ({
       u_time: { value: 0 },
       u_resolution: { value: new THREE.Vector3(1, 1, 1) },
       u_mouse: { value: new THREE.Vector4(0, 0, 0, 0) },
-      u_color: { value: new THREE.Color(color) },
+      u_color: { value: new THREE.Color(internalColor) },
       ...uniforms,
     }),
-    [uniforms, color]
+    [uniforms, internalColor]
   )
 
   return (
     <section
       className={cn(
-        "relative h-full w-full overflow-hidden",
+        "h-full w-full overflow-hidden",
         className
       )}
     >
-      <Canvas style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+      <Canvas 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        gl={{ alpha: true, antialias: true }}
+      >
         <ShaderPlane
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

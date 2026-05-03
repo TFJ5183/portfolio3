@@ -1,10 +1,38 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
-import { Shader3 } from "@/components/shader3"
+import { Shader3 } from "@/components/background/shader3.tsx"
+import FloatingTheme from "@/components/custom/floatingTheme.astro"
+import { ShimmeringText } from "@/components/animate-ui/primitives/texts/shimmering"
 ---
 
 <Layout>
-  {/* Background */}
-  <Shader3 client:load color="#0000ff" className="fixed inset-0"/>
+  {/* Hero Section */}
+  <div class="relative flex h-screen w-screen">
+    {/* Background */}
+    <Shader3 client:load className="fixed inset-0 -z-1" />
+
+    {/* Theme button */}
+    <FloatingTheme />
+
+    {/* Header */}
+    <div class="relative m-auto">
+      <div
+        class="floating-card flex flex-col p-10 text-center font-mono text-2xl font-extralight"
+      >
+        The Koi [dot] dev
+        <ShimmeringText
+          duration={2.5}
+          text="TFJ"
+          client:visible
+          className="text-9xl font-black"
+        />
+      </div>
+      {/* Extra content */}
+      <div
+        class="floating-card absolute top-[calc(100%+24px)] left-1/2 w-max -translate-x-1/2 p-2 text-center"
+      >
+        A random internet user
+      </div>
+    </div>
+  </div>
 </Layout>

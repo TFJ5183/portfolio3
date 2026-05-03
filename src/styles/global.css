@@ -118,16 +118,24 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
-  button:not(:disabled), [role="button"]:not(:disabled) {
-    cursor: pointer;
+
+    button:not(:disabled), [role="button"]:not(:disabled) {
+        cursor: pointer;
     }
-  html {
-    @apply font-mono;
+
+    html {
+        @apply font-mono;
     }
+}
+
+/* Floating card */
+.floating-card {
+    @apply border bg-background/75 backdrop-blur-md shadow-2xs
 }
