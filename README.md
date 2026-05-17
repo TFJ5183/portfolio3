@@ -1,16 +1,16 @@
 # TFJ's Portfolio
 
-A personal portfolio website showcasing web experiences and projects. This site is built with Astro for performance and React for interactive components.
+Personal portfolio of TFJ, an IT Specialist apprentice for Application Development.
 
 ## Overview
 
-This repository contains the source code for my personal portfolio. The goal of this project is to create a fast, visually engaging, and accessible space to share my work. It leverages modern styling techniques to provide a unique user experience.
+This repository contains the source code for the personal portfolio of TFJ (thekoi.dev). It is a static site built with Astro and React, featuring a clean interface and project highlights.
 
 ### Core Technologies
-- **Astro**: High-performance static site generation.
-- **React**: Interactive UI components.
-- **Tailwind CSS**: Utility-first styling with the latest v4 engine.
-- **shadcn/ui**: Accessible and customizable UI components.
+- **Astro**: Static site generation.
+- **React**: Component-based UI.
+- **Tailwind CSS v4**: Utility-first styling.
+- **shadcn/ui**: Component library.
 
 ## Requirements
 

@@ -2,14 +2,15 @@
 // Props typ
 type Props = {
   link?: string
+  emptyWindow?: boolean
   className?: string
 }
 
 // Props
-const { link, className = "" } = Astro.props
+const { link, emptyWindow, className = "" } = Astro.props
 ---
 
-<a href={link}>
+<a href={link} target={emptyWindow ? "_blank" : "_self"}>
   <li
     class="group relative cursor-pointer rounded-lg px-4 py-3 transition-all duration-300"
   >

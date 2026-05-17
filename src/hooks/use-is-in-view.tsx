@@ -7,7 +7,7 @@ interface UseIsInViewOptions {
   inViewMargin?: UseInViewOptions["margin"]
 }
 
-function useIsInView<T extends HTMLElement = HTMLElement>(
+export function useIsInView<T extends HTMLElement = HTMLElement>(
   ref: React.Ref<T>,
   options: UseIsInViewOptions = {}
 ) {
@@ -21,5 +21,3 @@ function useIsInView<T extends HTMLElement = HTMLElement>(
   const isInView = !inView || inViewResult
   return { ref: localRef, isInView }
 }
-
-export { useIsInView, type UseIsInViewOptions }

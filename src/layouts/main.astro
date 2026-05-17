@@ -40,21 +40,41 @@ import { Font } from "astro:assets"
   <body>
     <div class="relative h-screen w-screen overflow-hidden">
       {/*  Background */}
-      <img
-        src="/background.png"
-        class="absolute inset-0 -z-10 m-auto opacity-25 blur-sm select-none"
-        alt="Background"
-      />
+      <div class="absolute inset-0 -z-10">
+        <img
+          alt="background"
+          src="/background2.png"
+          class="absolute inset-0 -z-10 h-full w-full object-cover blur-sm select-none"
+        />
+        <div
+          class="absolute inset-0 bg-linear-to-r from-black to-black/25 md:to-transparent lg:via-black/25"
+        >
+        </div>
+      </div>
 
       {/* Children */}
       <slot />
 
       {/* Footer / Loading */}
-      <div class="absolute bottom-0 w-full p-10">
-        <p>The Koi [dot] dev</p>
-        <hr
-          class="my-12 h-px border-t-0 bg-transparent bg-linear-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
-        />
+      <div
+        class="absolute bottom-8 left-1/2 w-full max-w-2xl -translate-x-1/2 animate-[expand-full_1s_ease-in-out_2s_forwards,to-grayscale_1s_ease-in-out_2s_forwards] px-10"
+      >
+        <div
+          class="mb-2 flex justify-between font-mono text-xs tracking-widest text-muted-foreground uppercase opacity-50"
+        >
+          <span>System Status: Active</span>
+          <span class="animate-[fade-in_0.5s_ease-out_2s_forwards] opacity-0"
+            >Thekoi [dot] dev</span
+          >
+        </div>
+        <div
+          class="h-1 w-full overflow-hidden rounded-full bg-primary/10 transition-colors duration-1000"
+        >
+          <div
+            class="h-full animate-[fill-up_2s_ease-in-out_forwards] rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)] transition-colors duration-1000"
+          >
+          </div>
+        </div>
       </div>
     </div>
   </body>

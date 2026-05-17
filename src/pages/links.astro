@@ -2,6 +2,7 @@
 import ArrowEntry from "@/components/custom/arrowEntry.astro"
 import Layout from "@/layouts/main.astro"
 import { links } from "./[...slug].astro"
+import { CopyableUsername } from "@/components/custom/copyableUsername"
 ---
 
 <Layout>
@@ -16,9 +17,20 @@ import { links } from "./[...slug].astro"
         links
           .filter((link) => !link.hidden)
           .map((link) => (
-            <ArrowEntry link={link.target} className="flex items-center gap-4">
+            <ArrowEntry
+              link={link.target}
+              emptyWindow={true}
+              className="flex items-center gap-4"
+            >
               <link.icon class="h-6 w-6" />
               <span>{link.name}</span>
+              {link.username && (
+                <CopyableUsername
+                  client:load
+                  username={link.username}
+                  isLinked={!!link.target}
+                />
+              )}
             </ArrowEntry>
           ))
       }

@@ -1,40 +1,81 @@
 ---
+import Discord from "simple-icons-astro/Discord"
+import Youtube from "simple-icons-astro/Youtube"
+import Twitch from "simple-icons-astro/Twitch"
 import Github from "simple-icons-astro/Github"
 import Instagram from "simple-icons-astro/Instagram"
+import Steam from "simple-icons-astro/Steam"
 
 // Link entry typ
 type LinkEntry = {
   slug: string
   icon: any
   name: string
-  target: string
-  hidden: boolean
+  target?: string
+  hidden?: boolean
+  username?: string
 }
 
 // Links
 export const links: LinkEntry[] = [
   {
+    slug: "discord",
+    icon: Discord,
+    name: "Discord",
+    username: "tfj_5183",
+  },
+  {
+    slug: "youtube",
+    icon: Youtube,
+    name: "Youtube",
+    target: "https://youtube.com/@TFJ5183",
+    username: "TFJ5183",
+  },
+  {
+    slug: "twitch",
+    icon: Twitch,
+    name: "Twitch",
+    target: "https://twitch.tv/tfj5183",
+    username: "TFJ5183",
+  },
+  {
     slug: "github",
     icon: Github,
     name: "Github",
     target: "https://github.com/TFJ5183",
-    hidden: false,
+    username: "TFJ5183",
   },
   {
     slug: "instagram",
     icon: Instagram,
     name: "Instagram",
-    target: "https://www.instagram.com/tfj_5183/",
-    hidden: false,
+    target: "https://instagram.com/tfj_5183/",
+    username: "tfj_5183",
+  },
+  {
+    slug: "steam",
+    icon: Steam,
+    name: "Steam",
+    target: "https://steamcommunity.com/profiles/76561199250833995/",
+    username: "TFJ5183",
+  },
+  {
+    slug: "source-code",
+    icon: Github,
+    name: "Source code",
+    target: "https://github.com/TFJ5183/portfolio3",
+    hidden: true,
   },
 ]
 
 // Generates paths
 export function getStaticPaths() {
-  return links.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }))
+  return links
+    .filter((entry) => entry.target != undefined)
+    .map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    }))
 }
 
 // Props
