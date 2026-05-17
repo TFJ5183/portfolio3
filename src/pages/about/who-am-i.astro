@@ -1,0 +1,31 @@
+---
+import ArrowEntry from "@/components/custom/arrowEntry.astro"
+import Layout from "@/layouts/main.astro"
+---
+
+<Layout>
+  <div class="absolute top-1/2 left-20 z-10 -translate-y-1/2">
+    <h3 class="font-marker text-muted-foreground">Who</h3>
+    <h1 class="font-marker text-9xl tracking-widest text-primary">AM I?</h1>
+
+    <div class="mt-8 max-w-2xl space-y-4 text-lg text-muted-foreground">
+      <p>
+        I'm TFJ, a passionate developer and "random internet dude" who loves
+        creating digital experiences. I enjoy blending creativity with
+        technology to build things that are both functional and visually
+        interesting.
+      </p>
+      <p>
+        Currently, I'm exploring the world of web development, diving deep into
+        modern frameworks and design patterns. I believe in continuous learning
+        and always looking for the next challenge.
+      </p>
+    </div>
+
+    <ul class="mt-12 max-w-md space-y-2">
+      <ArrowEntry link="/about" className="block h-full w-full">
+        Back to About
+      </ArrowEntry>
+    </ul>
+  </div>
+</Layout>

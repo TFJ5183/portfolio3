@@ -1,0 +1,52 @@
+---
+import Github from "simple-icons-astro/Github"
+import Instagram from "simple-icons-astro/Instagram"
+
+// Link entry typ
+type LinkEntry = {
+  slug: string
+  icon: any
+  name: string
+  target: string
+  hidden: boolean
+}
+
+// Links
+export const links: LinkEntry[] = [
+  {
+    slug: "github",
+    icon: Github,
+    name: "Github",
+    target: "https://github.com/TFJ5183",
+    hidden: false,
+  },
+  {
+    slug: "instagram",
+    icon: Instagram,
+    name: "Instagram",
+    target: "https://www.instagram.com/tfj_5183/",
+    hidden: false,
+  },
+]
+
+// Generates paths
+export function getStaticPaths() {
+  return links.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+// Props
+const { entry } = Astro.props
+---
+
+<html>
+  <head>
+    <title>{entry.name}</title>
+    <meta http-equiv="refresh" content={`0; url=${entry.target}`} />
+  </head>
+  <body>
+    <p>Redirecting to {entry.name}...</p>
+  </body>
+</html>

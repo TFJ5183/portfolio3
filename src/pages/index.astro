@@ -1,38 +1,19 @@
 ---
+import ArrowEntry from "@/components/custom/arrowEntry.astro"
 import Layout from "@/layouts/main.astro"
-import { Shader3 } from "@/components/background/shader3.tsx"
-import FloatingTheme from "@/components/custom/floatingTheme.astro"
-import { ShimmeringText } from "@/components/animate-ui/primitives/texts/shimmering"
 ---
 
 <Layout>
-  {/* Hero Section */}
-  <div class="relative flex h-screen w-screen">
-    {/* Background */}
-    <Shader3 client:load className="fixed inset-0 -z-1" />
+  <div class="absolute top-1/2 left-20 z-10 -translate-y-1/2">
+    <h3 class="font-marker text-muted-foreground">A random internet user</h3>
+    <h1 class="font-marker text-9xl tracking-widest text-primary">TFJ</h1>
 
-    {/* Theme button */}
-    <FloatingTheme />
+    <ul class="max-w-md space-y-2">
+      <ArrowEntry link="/about" className="h-full w-full">
+        About Me
+      </ArrowEntry>
 
-    {/* Header */}
-    <div class="relative m-auto">
-      <div
-        class="floating-card flex flex-col p-10 text-center font-mono text-2xl font-extralight"
-      >
-        The Koi [dot] dev
-        <ShimmeringText
-          duration={2.5}
-          text="TFJ"
-          client:visible
-          className="text-9xl font-black"
-        />
-      </div>
-      {/* Extra content */}
-      <div
-        class="floating-card absolute top-[calc(100%+24px)] left-1/2 w-max -translate-x-1/2 p-2 text-center"
-      >
-        A random internet user
-      </div>
-    </div>
+      <ArrowEntry link="/links" className="h-full w-full"> Links </ArrowEntry>
+    </ul>
   </div>
 </Layout>

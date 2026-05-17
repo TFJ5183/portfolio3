@@ -1,0 +1,38 @@
+---
+import ArrowEntry from "@/components/custom/arrowEntry.astro"
+import Layout from "@/layouts/main.astro"
+---
+
+<Layout>
+  <div class="absolute top-1/2 left-20 z-10 -translate-y-1/2">
+    <h3 class="font-marker text-muted-foreground">Check out</h3>
+    <h1 class="font-marker text-9xl tracking-widest text-primary">MY SKILLS</h1>
+
+    <div class="mt-8 grid grid-cols-2 gap-8 max-w-2xl">
+      <div>
+        <h2 class="font-marker text-2xl text-primary mb-4">Frontend</h2>
+        <ul class="text-muted-foreground space-y-1">
+          <li>Astro</li>
+          <li>React / Next.js</li>
+          <li>Tailwind CSS</li>
+          <li>TypeScript</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-marker text-2xl text-primary mb-4">Backend & Tools</h2>
+        <ul class="text-muted-foreground space-y-1">
+          <li>Node.js</li>
+          <li>Git</li>
+          <li>Docker</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="mt-12 space-y-2 max-w-md">
+      <ArrowEntry>
+        <a href="/about" class="w-full h-full block">Back to About</a>
+      </ArrowEntry>
+    </ul>
+  </div>
+</Layout>

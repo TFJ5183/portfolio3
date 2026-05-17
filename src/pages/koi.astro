@@ -1,14 +1,10 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Shader3 } from "@/components/background/shader3.tsx"
 import FloatingTheme from "@/components/custom/floatingTheme.astro"
 import FloatingHome from "@/components/custom/floatingHome.astro"
 ---
 
 <Layout>
-  {/* Background */}
-  <Shader3 client:load className="fixed inset-0 -z-10 blur-xs" />
-
   {/* Buttons */}
   <FloatingHome />
   <FloatingTheme />

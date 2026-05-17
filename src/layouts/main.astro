@@ -1,24 +1,30 @@
 ---
 import "@/styles/global.css"
+import { Font } from "astro:assets"
 ---
 
 <!-- Theme script -->
 <script is:inline>
   const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme")
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
-  const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light"
+  }
+  const isDark = getThemePreference() === "dark"
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark")
 
-  if (typeof localStorage !== 'undefined') {
+  if (typeof localStorage !== "undefined") {
     const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      const isDark = document.documentElement.classList.contains("dark")
+      localStorage.setItem("theme", isDark ? "dark" : "light")
+    })
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
   }
 </script>
 
@@ -28,9 +34,28 @@ import "@/styles/global.css"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>WIP | The Koi [dot] dev</title>
+    <title>The Koi [dot] dev</title>
+    <Font cssVariable="--marker-font" preload={true} />
   </head>
   <body>
-    <slot />
+    <div class="relative h-screen w-screen overflow-hidden">
+      {/*  Background */}
+      <img
+        src="/background.png"
+        class="absolute inset-0 -z-10 m-auto opacity-25 blur-sm select-none"
+        alt="Background"
+      />
+
+      {/* Children */}
+      <slot />
+
+      {/* Footer / Loading */}
+      <div class="absolute bottom-0 w-full p-10">
+        <p>The Koi [dot] dev</p>
+        <hr
+          class="my-12 h-px border-t-0 bg-transparent bg-linear-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"
+        />
+      </div>
+    </div>
   </body>
 </html>
