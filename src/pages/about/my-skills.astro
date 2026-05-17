@@ -8,10 +8,10 @@ import Layout from "@/layouts/main.astro"
     <h3 class="font-marker text-muted-foreground">Check out</h3>
     <h1 class="font-marker text-9xl tracking-widest text-primary">MY SKILLS</h1>
 
-    <div class="mt-8 grid grid-cols-2 gap-8 max-w-2xl">
+    <div class="mt-8 grid max-w-2xl grid-cols-2 gap-8">
       <div>
-        <h2 class="font-marker text-2xl text-primary mb-4">Frontend</h2>
-        <ul class="text-muted-foreground space-y-1">
+        <h2 class="mb-4 font-marker text-2xl text-primary">Frontend</h2>
+        <ul class="space-y-1 text-muted-foreground">
           <li>Astro</li>
           <li>React / Next.js</li>
           <li>Tailwind CSS</li>
@@ -19,8 +19,8 @@ import Layout from "@/layouts/main.astro"
         </ul>
       </div>
       <div>
-        <h2 class="font-marker text-2xl text-primary mb-4">Backend & Tools</h2>
-        <ul class="text-muted-foreground space-y-1">
+        <h2 class="mb-4 font-marker text-2xl text-primary">Backend & Tools</h2>
+        <ul class="space-y-1 text-muted-foreground">
           <li>Node.js</li>
           <li>Git</li>
           <li>Docker</li>
@@ -29,9 +29,9 @@ import Layout from "@/layouts/main.astro"
       </div>
     </div>
 
-    <ul class="mt-12 space-y-2 max-w-md">
+    <ul class="mt-12 max-w-md space-y-2">
       <ArrowEntry>
-        <a href="/about" class="w-full h-full block">Back to About</a>
+        <a href="/about" class="block h-full w-full">Back to About</a>
       </ArrowEntry>
     </ul>
   </div>
