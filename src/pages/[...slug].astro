@@ -51,6 +51,7 @@ export const links: LinkEntry[] = [
     name: "Instagram",
     target: "https://instagram.com/tfj_5183/",
     username: "tfj_5183",
+    hidden: true,
   },
   {
     slug: "steam",
@@ -58,6 +59,12 @@ export const links: LinkEntry[] = [
     name: "Steam",
     target: "https://steamcommunity.com/profiles/76561199250833995/",
     username: "TFJ5183",
+  },
+  {
+    slug: "discord-server",
+    icon: Discord,
+    name: "Discord Server",
+    target: "https://discord.gg/PzRH4skZSF",
   },
   {
     slug: "source-code",
@@ -89,5 +96,6 @@ const { entry } = Astro.props
   </head>
   <body>
     <p>Redirecting to {entry.name}...</p>
+    <a href={entry.target}>Not redirected? click me</a>
   </body>
 </html>

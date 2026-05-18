@@ -104,52 +104,6 @@
     @apply border bg-background/75 backdrop-blur-md shadow-2xs
 }
 
-/* Small loading */
-@keyframes loading {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(300%);
-    }
-}
-
-@keyframes fill-up {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-/* Fills up whole width */
-@keyframes expand-full {
-    0% {
-        max-width: var(--max-w-2xl, 42rem);
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
-    100% {
-        max-width: 90%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-/* Changes bar color to gray */
-@keyframes to-grayscale {
-    0% {
-        --primary: oklch(0.517 0.2 259.224);
-        --muted-foreground: oklch(0.705 0.015 286.067);
-    }
-    100% {
-        --primary: oklch(0.705 0.015 286.067);
-        --muted-foreground: oklch(0.705 0.015 286.067);
-        opacity: 0.3;
-    }
-}
-
 /* Text fade in from bottom */
 @keyframes fade-in {
     0% {

@@ -55,23 +55,22 @@ import { Font } from "astro:assets"
       {/* Children */}
       <slot />
 
-      {/* Footer / Loading */}
+      {/* Loading bar */}
       <div
-        class="absolute bottom-8 left-1/2 w-full max-w-2xl -translate-x-1/2 animate-[expand-full_1s_ease-in-out_2s_forwards,to-grayscale_1s_ease-in-out_2s_forwards] px-10"
+        id="loading-bar"
+        class="absolute bottom-8 left-1/2 w-full max-w-[90%] -translate-x-1/2 px-0 transition-[max-width,padding] duration-1000 ease-in-out"
       >
         <div
           class="mb-2 flex justify-between font-mono text-xs tracking-widest text-muted-foreground uppercase opacity-50"
         >
           <span>System Status: Active</span>
-          <span class="animate-[fade-in_0.5s_ease-out_2s_forwards] opacity-0"
-            >Thekoi [dot] dev</span
-          >
+          <span>Thekoi [dot] dev</span>
         </div>
         <div
           class="h-1 w-full overflow-hidden rounded-full bg-primary/10 transition-colors duration-1000"
         >
           <div
-            class="h-full animate-[fill-up_2s_ease-in-out_forwards] rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)] transition-colors duration-1000"
+            class="h-full w-full rounded-full bg-muted opacity-30 shadow-[0_0_10px_rgba(var(--primary),0.5)] transition-colors duration-1000"
           >
           </div>
         </div>

@@ -5,17 +5,15 @@ import { useState } from "react"
 import { CheckIcon, CopyIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-interface CopyableUsernameProps {
-  username: string
-  isLinked?: boolean
-  className?: string
-}
-
 export function CopyableUsername({
   username,
   isLinked,
   className,
-}: CopyableUsernameProps) {
+}: {
+  username: string
+  isLinked?: boolean
+  className?: string
+}): React.JSX.Element {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = (e: React.MouseEvent) => {
