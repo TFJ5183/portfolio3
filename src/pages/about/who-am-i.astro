@@ -4,11 +4,17 @@ import Layout from "@/layouts/main.astro"
 ---
 
 <Layout>
-  <div class="absolute top-1/2 left-20 z-10 -translate-y-1/2">
+  <div class="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-20">
     <h3 class="font-marker text-muted-foreground">Who</h3>
-    <h1 class="font-marker text-9xl tracking-widest text-primary">AM I?</h1>
+    <h1
+      class="font-marker text-6xl tracking-widest text-primary sm:text-7xl md:text-9xl"
+    >
+      AM I?
+    </h1>
 
-    <div class="mt-8 max-w-2xl space-y-4 text-lg text-muted-foreground">
+    <div
+      class="mt-8 max-w-2xl space-y-4 text-base text-muted-foreground sm:text-lg"
+    >
       <p>
         I am TFJ, an IT Specialist apprentice for Application Development.
         Basically, I turn caffeine into code and hope for the best (well
@@ -31,6 +37,16 @@ import Layout from "@/layouts/main.astro"
         As for the domain <code class="text-primary">thekoi.dev</code>? I find
         fish fascinating, especially Kois. They just swim around, look pretty,
         and don't have to deal with merge conflicts. Living the dream, honestly.
+      </p>
+
+      <p>
+        My philosophy is simple: there are <a
+          href="https://www.youtube.com/watch?v=QNFQvX-MQgI"
+          class="underline">only 14 games of tic-tac-toe</a
+        > The only winning move is not to play. (<a
+          href="https://en.wikipedia.org/wiki/WarGames"
+          class="underline">WarGames</a
+        >)
       </p>
     </div>
 

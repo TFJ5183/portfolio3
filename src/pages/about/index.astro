@@ -4,9 +4,13 @@ import Layout from "@/layouts/main.astro"
 ---
 
 <Layout>
-  <div class="absolute top-1/2 left-20 z-10 -translate-y-1/2">
+  <div class="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-20">
     <h3 class="font-marker text-muted-foreground">Learn more about</h3>
-    <h1 class="font-marker text-9xl tracking-widest text-primary">ME</h1>
+    <h1
+      class="font-marker text-6xl tracking-widest text-primary sm:text-7xl md:text-9xl"
+    >
+      ME
+    </h1>
 
     <ul class="max-w-md space-y-2">
       <ArrowEntry link="/" className="h-full w-full"> Back to Home </ArrowEntry>
