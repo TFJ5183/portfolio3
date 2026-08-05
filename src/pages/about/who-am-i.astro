@@ -1,62 +1,51 @@
 ---
 import ArrowEntry from "@/components/custom/arrowEntry.astro"
 import Layout from "@/layouts/main.astro"
+import { LinkIcon, QuoteIcon, UserRoundIcon } from "lucide-react"
+import { icon } from "../index.astro"
+import Title from "@/components/custom/title.astro"
+import Prose from "@/components/custom/prose.astro"
+import ButtonContainer from "@/components/custom/buttonContainer.astro"
 ---
 
-<Layout>
-  <div class="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-20">
-    <h3 class="font-marker text-muted-foreground">Who</h3>
-    <h1
-      class="font-marker text-6xl tracking-widest text-primary sm:text-7xl md:text-9xl"
-    >
-      AM I?
-    </h1>
+<Layout title="Who am I?">
+  <Title subheader="Who" header="AM I?" />
 
-    <div
-      class="mt-8 max-w-2xl space-y-4 text-base text-muted-foreground sm:text-lg"
-    >
-      <p>
-        I am TFJ, an IT Specialist apprentice for Application Development.
-        Basically, I turn caffeine into code and hope for the best (well
-        actually I just drink water).
-      </p>
+  <Prose>
+    <p>
+      I am TFJ, an IT Specialist apprentice for Application Development.
+      Basically, I turn caffeine into code and hope for the best (well actually
+      I just drink water).
+    </p>
 
-      <p>
-        When I'm not "apprenticing" (which is a fancy word for learning why my
-        code broke), I'm working on side projects that may or may not ever see
-        the light of day.
-      </p>
+    <p>
+      When I'm not "apprenticing" (which is a fancy word for learning why my
+      code broke), I'm working on side projects that may or may not ever see the
+      light of day.
+    </p>
 
-      <p>
-        I have a deep-seated love for the Cyberpunk genre—mostly because it
-        predicts a future where my bad eyesight can be fixed with cool neon
-        implants.
-      </p>
+    <p>
+      I have a deep-seated love for the Cyberpunk genre - mostly because it
+      predicts a future where my bad eyesight can be fixed with cool neon
+      implants.
+    </p>
 
-      <p>
-        As for the domain <code class="text-primary">thekoi.dev</code>? I find
-        fish fascinating, especially Kois. They just swim around, look pretty,
-        and don't have to deal with merge conflicts. Living the dream, honestly.
-      </p>
+    <p>
+      As for the domain <code class="text-primary">thekoi.dev</code>? I find
+      fish fascinating, especially Kois. They just swim around, look pretty, and
+      don't have to deal with merge conflicts. Living the dream, honestly.
+    </p>
+  </Prose>
 
-      <p>
-        My philosophy is simple: there are <a
-          href="https://www.youtube.com/watch?v=QNFQvX-MQgI"
-          class="underline">only 14 games of tic-tac-toe</a
-        > The only winning move is not to play. (<a
-          href="https://en.wikipedia.org/wiki/WarGames"
-          class="underline">WarGames</a
-        >)
-      </p>
-    </div>
-
-    <ul class="mt-12 max-w-md space-y-2">
-      <ArrowEntry link="/links" className="block h-full w-full">
-        You may know me from
-      </ArrowEntry>
-      <ArrowEntry link="/about" className="block h-full w-full">
-        Back to About
-      </ArrowEntry>
-    </ul>
-  </div>
+  <ButtonContainer>
+    <ArrowEntry link="/about" className="block h-full w-full">
+      <UserRoundIcon className={icon} /> Back to About
+    </ArrowEntry>
+    <ArrowEntry link="/links" className="block h-full w-full">
+      <LinkIcon className={icon} /> You may know me from
+    </ArrowEntry>
+    <ArrowEntry link="/about/favorite-quotes" className="block h-full w-full">
+      <QuoteIcon className={icon} /> My favorites quotes
+    </ArrowEntry>
+  </ButtonContainer>
 </Layout>

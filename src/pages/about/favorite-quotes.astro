@@ -1,0 +1,84 @@
+---
+import ArrowEntry from "@/components/custom/arrowEntry.astro"
+import Layout from "@/layouts/main.astro"
+import { ChevronRightIcon, HomeIcon, UserRoundIcon } from "lucide-react"
+import Title from "@/components/custom/title.astro"
+import { icon } from "../index.astro"
+import ButtonContainer from "@/components/custom/buttonContainer.astro"
+import { cn } from "@/lib/utils.ts"
+
+// Quote entry
+type QuoteEntry = {
+  quote: string
+  author: string
+  source?: string
+}
+
+// Quotes
+const quotes: QuoteEntry[] = [
+  {
+    quote: "A strange game. The only winning move is not to play",
+    author: "War games - 1983 Movie",
+    source: "https://www.imdb.com/title/tt0086567/",
+  },
+  {
+    quote:
+      "A computer is like air conditioning - it becomes useless when you open Windows",
+    author: "Linus Torvalds",
+    source: undefined,
+  },
+  {
+    quote: "There are Exactly 14 Different Games of Tic-Tac-Toe",
+    author: "Marc Evanstein",
+    source: "https://www.youtube.com/watch?v=QNFQvX-MQgI",
+  },
+  {
+    quote: "Bleh",
+    author: "Random cat",
+    source: "https://media.tenor.com/gLt8M5yVTgwAAAAe/bleh-cat.png",
+  },
+  {
+    quote: "Fck",
+    author: "Me, multiple times a day",
+    source: undefined,
+  },
+]
+---
+
+<Layout title="Favorite Quotes">
+  <Title subheader="These are my" header="FAVORITE QUOTES" />
+
+  <!-- Quotes -->
+  <ButtonContainer className="gap-7">
+    {
+      quotes.map((quote) => (
+        <a
+          class="group flex flex-col items-center gap-3 p-2 md:flex-row"
+          href={quote.source}
+          target="_blank"
+        >
+          <ChevronRightIcon
+            className={cn(
+              icon,
+              "hidden text-muted-foreground group-hover:text-primary md:block"
+            )}
+          />
+          <p class="w-full text-left md:w-fit"> {'"' + quote.quote + '"'}</p>
+          <p class="hidden text-muted md:block">~</p>
+          <p class="w-full text-left text-muted-foreground md:w-fit">
+            {quote.author}
+          </p>
+        </a>
+      ))
+    }
+  </ButtonContainer>
+
+  <ButtonContainer>
+    <ArrowEntry link="/" className="h-full w-full">
+      <HomeIcon className={icon} /> Back home
+    </ArrowEntry>
+    <ArrowEntry link="/about" className="h-full w-full">
+      <UserRoundIcon className={icon} /> Back to about
+    </ArrowEntry>
+  </ButtonContainer>
+</Layout>

@@ -1,0 +1,15 @@
+---
+// Props typ
+
+import { cn } from "@/lib/utils.ts"
+type Props = {
+  className?: string
+}
+
+// Props
+const { className = "" } = Astro.props
+---
+
+<ul class={cn("my-4 flex flex-col gap-3", className)}>
+  <slot />
+</ul>

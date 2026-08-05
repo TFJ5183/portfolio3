@@ -1,0 +1,20 @@
+---
+// Props typ
+type Props = {
+  subheader: string
+  header: string
+  className?: string
+}
+
+// Props
+const { subheader, header, className = "mt-5" }: Props = Astro.props
+---
+
+<div class={className}>
+  <h3 class="font-marker text-muted-foreground">{subheader}</h3>
+  <h1
+    class="w-full font-marker text-6xl tracking-widest text-primary uppercase sm:text-7xl md:text-9xl"
+  >
+    {header}
+  </h1>
+</div>

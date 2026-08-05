@@ -1,80 +1,62 @@
 ---
 import "@/styles/global.css"
+import ClientRouter from "astro/components/ClientRouter.astro"
 import { Font } from "astro:assets"
+import Footer from "@/components/custom/footer.astro"
+
+// Props typ
+interface Props {
+  title?: string
+}
+
+// Props
+const { title = "" } = Astro.props
+
+// Suffix
+const siteTitle = "The Koi [dot] dev"
+
+// Page title result
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle
 ---
-
-<!-- Theme script -->
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme")
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light"
-  }
-  const isDark = getThemePreference() === "dark"
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark")
-      localStorage.setItem("theme", isDark ? "dark" : "light")
-    })
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    })
-  }
-</script>
 
 <!-- Template -->
 <html lang="en">
+  <!-- Head -->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>The Koi [dot] dev</title>
+    <link rel="icon" href="/t.png" />
+    <title>{pageTitle}</title>
     <Font cssVariable="--marker-font" preload={true} />
   </head>
-  <body>
-    <div class="relative h-screen w-screen overflow-hidden">
-      {/*  Background */}
-      <div class="absolute inset-0 -z-10">
-        <img
-          alt="background"
-          src="/background2.png"
-          class="absolute inset-0 -z-10 h-full w-full object-cover blur-sm select-none"
-        />
-        <div
-          class="absolute inset-0 bg-linear-to-r from-black to-black/25 md:to-transparent lg:via-black/25"
-        >
-        </div>
-      </div>
-
-      {/* Children */}
-      <slot />
-
-      {/* Loading bar */}
+  <!-- Body -->
+  <body class="relative min-h-screen">
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <img
+        alt="background"
+        src="/backgrounds/bar.png"
+        class="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center blur-xs select-none"
+      />
       <div
-        id="loading-bar"
-        class="absolute bottom-8 left-1/2 w-full max-w-[90%] -translate-x-1/2 px-0 transition-[max-width,padding] duration-1000 ease-in-out"
+        class="absolute inset-0 bg-linear-to-r from-black to-black/10 md:to-transparent lg:via-black/25"
       >
-        <div
-          class="mb-2 flex justify-between font-mono text-xs tracking-widest text-muted-foreground uppercase opacity-50"
-        >
-          <span>System Status: Active</span>
-          <span>Thekoi [dot] dev</span>
-        </div>
-        <div
-          class="h-1 w-full overflow-hidden rounded-full bg-primary/10 transition-colors duration-1000"
-        >
-          <div
-            class="h-full w-full rounded-full bg-muted opacity-30 shadow-[0_0_10px_rgba(var(--primary),0.5)] transition-colors duration-1000"
-          >
-          </div>
-        </div>
       </div>
+    </div>
+
+    <!-- Client-side router -->
+    <ClientRouter />
+
+    <div class="relative flex min-h-screen flex-col">
+      {/* Page content */}
+      <main class="relative flex flex-1 flex-col justify-center">
+        <div class="px-4 py-12 md:px-20">
+          <slot />
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <Footer />
     </div>
   </body>
 </html>

@@ -4,6 +4,7 @@
 @import "@fontsource-variable/jetbrains-mono";
 
 @theme inline {
+    --radius: 0.25rem;
     --font-heading: var(--font-mono);
     --font-mono: 'JetBrains Mono Variable', monospace;
     --font-marker: var(--marker-font), cursive;
@@ -54,7 +55,7 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.21 0.006 285.885);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.517 0.2 259.224);
+    --primary: oklch(0.787 0.156 69.359);
     --primary-foreground: oklch(0.21 0.006 285.885);
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(0.985 0 0);

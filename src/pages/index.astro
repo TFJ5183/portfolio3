@@ -1,30 +1,36 @@
 ---
 import ArrowEntry from "@/components/custom/arrowEntry.astro"
 import Layout from "@/layouts/main.astro"
+import { CodeXmlIcon, LinkIcon, MailIcon, UserRoundIcon } from "lucide-react"
+import Title from "@/components/custom/title.astro"
+import ButtonContainer from "@/components/custom/buttonContainer.astro"
+
+// Icon classes
+export const icon: string = "size-5"
 ---
 
 <Layout>
-  <div class="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-20">
-    <h3 class="font-marker text-muted-foreground">A random internet user</h3>
-    <h1
-      class="font-marker text-6xl tracking-widest text-primary sm:text-7xl md:text-9xl"
-    >
-      TFJ
-    </h1>
+  <Title subheader="A random internet user" header="TFJ" className="" />
 
-    <ul class="max-w-md space-y-2">
-      <!-- About me -->
-      <ArrowEntry link="/about" className="h-full w-full">
-        About Me
-      </ArrowEntry>
+  <ButtonContainer>
+    <!-- About me -->
+    <ArrowEntry link="/about" className="h-full w-full">
+      <UserRoundIcon className={icon} /> About Me
+    </ArrowEntry>
 
-      <!-- Links overview -->
-      <ArrowEntry link="/links" className="h-full w-full"> Links </ArrowEntry>
+    <!-- Links overview -->
+    <ArrowEntry link="/links" className="h-full w-full">
+      <LinkIcon className={icon} /> Links
+    </ArrowEntry>
 
-      <!-- Source code -->
-      <ArrowEntry link="/source-code" className="h-full w-full opacity-70">
-        View source code
-      </ArrowEntry>
-    </ul>
-  </div>
+    <!-- Contact -->
+    <ArrowEntry link="/contact" className="h-full w-full">
+      <MailIcon className={icon} /> Contact
+    </ArrowEntry>
+
+    <!-- Source code -->
+    <ArrowEntry link="/source-code" className="h-full w-full opacity-70">
+      <CodeXmlIcon className={icon} /> View source code
+    </ArrowEntry>
+  </ButtonContainer>
 </Layout>

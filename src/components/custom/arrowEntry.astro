@@ -2,27 +2,29 @@
 // Props typ
 type Props = {
   link?: string
-  emptyWindow?: boolean
+  newWindow?: boolean
   className?: string
 }
 
 // Props
-const { link, emptyWindow, className = "" } = Astro.props
+const { link, newWindow, className = "" } = Astro.props
 ---
 
-<a href={link} target={emptyWindow ? "_blank" : "_self"}>
+<a href={link} target={newWindow ? "_blank" : "_self"}>
   <li
     class="group relative cursor-pointer rounded-lg px-4 py-3 transition-all duration-300"
   >
     {/* Arrow */}
     <div
-      class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-start overflow-hidden rounded-2xl border-l border-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-start overflow-hidden border-l border-primary opacity-0 transition-opacity duration-150 select-none group-hover:opacity-100 group-hover:transition-none"
     >
-      <span class="font-marker text-8xl text-primary blur-sm">></span>
+      <span class="font-marker text-8xl text-primary blur-xs"
+        ><img class="size-10" src="/koi.svg" alt=">" /></span
+      >
     </div>
 
     {/* Content */}
-    <span class={"relative flex " + className}>
+    <span class={"relative flex items-center gap-3 " + className}>
       <slot />
     </span>
   </li>
