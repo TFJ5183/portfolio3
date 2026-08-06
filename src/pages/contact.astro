@@ -11,19 +11,31 @@ import { CopyableUsername } from "@/components/custom/copyableUsername.tsx"
 import ButtonContainer from "@/components/custom/buttonContainer.astro"
 ---
 
-<Layout title="Conact">
-  <Title subheader="This is how, you can" header="Contact Me" />
+<Layout title="Contact">
+  <Title subheader="This is how you can" header="Contact Me" />
 
   <Prose>
+    <p>
+      If you want to reach out, the best way is through Discord. I'm usually
+      around, though I might be busy dying in Minecraft or Cyberpunk. Or arguing with typescript
+    </p>
     <p class="flex">
-      Im open the get contacted over discord <CopyableUsername
+      Feel free to add me: <CopyableUsername
         className="text-current"
         client:load
         username={discord.username!}
         isLinked={false}
-      /> :)
+      />
     </p>
-    <p>I cannot be hired</p>
+    <p>
+      Whether you have a question about one of my projects, want to talk about
+      Cyberpunk, or just want to say hi, my inbox is open!
+    </p>
+    <p>
+      <strong>A quick note:</strong> I'm currently not looking for work or
+      freelance opportunities. I'm focused on my apprenticeship and personal
+      projects for now.
+    </p>
   </Prose>
 
   <ButtonContainer>
