@@ -1,0 +1,50 @@
+---
+import ArrowEntry from "@/components/custom/arrowEntry.astro"
+import Layout from "@/layouts/main.astro"
+import { discord } from "./[...slug].astro"
+import { HomeIcon, LinkIcon } from "lucide-react"
+import { icon } from "./index.astro"
+
+import Title from "@/components/custom/title.astro"
+import Prose from "@/components/custom/prose.astro"
+import { CopyableUsername } from "@/components/custom/copyableUsername.tsx"
+import ButtonContainer from "@/components/custom/buttonContainer.astro"
+---
+
+<Layout title="Contact">
+  <Title subheader="This is how you can" header="Contact Me" />
+
+  <Prose>
+    <p>
+      If you want to reach out, the best way is through Discord. I'm usually
+      around, though I might be busy dying in Minecraft or Cyberpunk. Or arguing with typescript
+    </p>
+    <p class="flex">
+      Feel free to add me: <CopyableUsername
+        className="text-current"
+        client:load
+        username={discord.username!}
+        isLinked={false}
+      />
+    </p>
+    <p>
+      Whether you have a question about one of my projects, want to talk about
+      Cyberpunk, or just want to say hi, my inbox is open!
+    </p>
+    <p>
+      <strong>A quick note:</strong> I'm currently not looking for work or
+      freelance opportunities. I'm focused on my apprenticeship and personal
+      projects for now.
+    </p>
+  </Prose>
+
+  <ButtonContainer>
+    <ArrowEntry link="/" className="h-full w-full">
+      <HomeIcon className={icon} /> Back home
+    </ArrowEntry>
+
+    <ArrowEntry link="/links" className="h-full w-full">
+      <LinkIcon className={icon} /> To Links
+    </ArrowEntry>
+  </ButtonContainer>
+</Layout>

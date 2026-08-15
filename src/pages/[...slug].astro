@@ -16,63 +16,87 @@ type LinkEntry = {
   username?: string
 }
 
+// Discord
+export const discord: LinkEntry = {
+  slug: "discord",
+  icon: Discord,
+  name: "Discord",
+  username: "tfj_5183",
+}
+
+// Youtube
+export const youtube: LinkEntry = {
+  slug: "youtube",
+  icon: Youtube,
+  name: "Youtube",
+  target: "https://youtube.com/@TFJ5183",
+  username: "TFJ5183",
+}
+
+// Twitch
+export const twitch: LinkEntry = {
+  slug: "twitch",
+  icon: Twitch,
+  name: "Twitch",
+  target: "https://twitch.tv/tfj5183",
+  username: "TFJ5183",
+}
+
+// Github
+export const github: LinkEntry = {
+  slug: "github",
+  icon: Github,
+  name: "Github",
+  target: "https://github.com/TFJ5183",
+  username: "TFJ5183",
+}
+
+// Instagram
+export const instagram: LinkEntry = {
+  slug: "instagram",
+  icon: Instagram,
+  name: "Instagram",
+  target: "https://instagram.com/tfj_5183/",
+  username: "tfj_5183",
+  hidden: true,
+}
+
+// Steam
+export const steam: LinkEntry = {
+  slug: "steam",
+  icon: Steam,
+  name: "Steam",
+  target: "https://steamcommunity.com/profiles/76561199250833995/",
+  username: "TFJ5183",
+}
+
+// Discord server
+export const discordServer: LinkEntry = {
+  slug: "discord-server",
+  icon: Discord,
+  name: "Discord Server",
+  target: "https://discord.gg/PzRH4skZSF",
+}
+
+// Source code
+export const sourceCode: LinkEntry = {
+  slug: "source-code",
+  icon: Github,
+  name: "Source code",
+  target: "https://github.com/TFJ5183/portfolio3",
+  hidden: true,
+}
+
 // Links
 export const links: LinkEntry[] = [
-  {
-    slug: "discord",
-    icon: Discord,
-    name: "Discord",
-    username: "tfj_5183",
-  },
-  {
-    slug: "youtube",
-    icon: Youtube,
-    name: "Youtube",
-    target: "https://youtube.com/@TFJ5183",
-    username: "TFJ5183",
-  },
-  {
-    slug: "twitch",
-    icon: Twitch,
-    name: "Twitch",
-    target: "https://twitch.tv/tfj5183",
-    username: "TFJ5183",
-  },
-  {
-    slug: "github",
-    icon: Github,
-    name: "Github",
-    target: "https://github.com/TFJ5183",
-    username: "TFJ5183",
-  },
-  {
-    slug: "instagram",
-    icon: Instagram,
-    name: "Instagram",
-    target: "https://instagram.com/tfj_5183/",
-    username: "tfj_5183",
-    hidden: true,
-  },
-  {
-    slug: "steam",
-    icon: Steam,
-    name: "Steam",
-    target: "https://steamcommunity.com/profiles/76561199250833995/",
-    username: "TFJ5183",
-  },
-  {
-    slug: "discord-server",
-    icon: Discord,
-    name: "Discord Server",
-    target: "https://discord.gg/PzRH4skZSF",
-  },
-  {
-    slug: "source-code",
-    icon: Github,
-    name: "Source code",
-    target: "https://github.com/TFJ5183/portfolio3",
-    hidden: true,
-  },
+  discord,
+  youtube,
+  twitch,
+  github,
+  instagram,
+  steam,
+  discordServer,
+  sourceCode,
 ]
 
 // Generates paths
