@@ -10,9 +10,9 @@ type Props = {
 const { link, newWindow, className = "" } = Astro.props
 ---
 
-<a href={link} target={newWindow ? "_blank" : "_self"}>
+<a href={link} target={newWindow ? "_blank" : "_self"} class={link !== undefined ? "cursor-pointer" : "cursor-default"}>
   <li
-    class="group relative cursor-pointer rounded-lg px-4 py-3 transition-all duration-300"
+    class="group relative rounded-lg px-4 py-3 transition-all duration-300"
   >
     {/* Arrow */}
     <div

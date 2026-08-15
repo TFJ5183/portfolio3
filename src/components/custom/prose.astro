@@ -1,13 +1,17 @@
 ---
+import { cn } from "@/lib/utils.ts"
+
+// Props typ
 interface Props {
   className?: string
 }
 
+// Props
 const { className = "" } = Astro.props
 ---
 
 <div
-  class={`mt-8 max-w-2xl space-y-4 text-base text-muted-foreground sm:text-lg ${className}`}
+  class={cn("mt-8 max-w-2xl space-y-4 text-base text-secondary-foreground sm:text-lg", className)}
 >
   <slot />
 </div>
